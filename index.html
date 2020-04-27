@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="controller.js"></script>
 </head>
 
 <body>
@@ -13,6 +14,7 @@
     <script>
         // model
         const persons = [];
+        let personName = '';
 
         // view 
         updateView();
@@ -25,25 +27,24 @@
             const html = personsHtml === ''
                 ? `<i>Ingen påmeldte</i>`
                 : `<ul>${personsHtml}</ul>`;
+            const noRegistrationsMessage = persons.length === 0 ? '<p><i>Ingen påmeldte</i></p>' : '';
             document.getElementById('app').innerHTML = `
                 <h3>Påmeldte</h3>
                 <ul>
                     ${personsHtml}
                 </ul>     
-                ${persons.length === 0 ? '<p><i>Ingen påmeldte</i></p>' : ''}        
+                ${noRegistrationsMessage}        
                 <b>Påmelding:</b> 
                 Navn: 
-                <input type="text" id="person"/>
+                <input type="text" oninput="personName=this.value" />
                 <button onclick="register()">Meld på</button>
             `;
         }
 
-        // controller
-        function register() {
-            const person = document.getElementById('person').value;
-            persons.push(person);
-            updateView();
-        }
+        // hjelpefunksjoner
+        // function el(id) {
+        //     return document.getElementById('person')
+        // }
 
     </script>
 </body>
