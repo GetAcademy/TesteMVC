@@ -22,7 +22,7 @@
             let personsHtml = '';
             for (let i = 0; i < persons.length; i++) {
                 const person = persons[i];
-                personsHtml += `<li>${person}</li>`;
+                personsHtml += `<li>${person} <button onclick="deletePerson(${i})">x</button></li>`;
             }
             const html = personsHtml === ''
                 ? `<i>Ingen påmeldte</i>`

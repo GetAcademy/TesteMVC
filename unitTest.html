@@ -19,12 +19,19 @@
 
         function updateView() {}
 
-        QUnit.test("hello test", function (assert) {
+        QUnit.test("legge til", function (assert) {
             persons = [];
             personName = 'Terje';
             register();
             assert.equal(persons.length, 1);
             assert.equal(persons[0], 'Terje');
+            assert.equal(personName, '');
+        });
+
+        QUnit.test("slette", function (assert) {
+            persons = ['A', 'B', 'C'];
+            deletePerson(1);
+            assert.deepEqual(persons, ['A', 'C']);
         });
     </script>
 </body>
